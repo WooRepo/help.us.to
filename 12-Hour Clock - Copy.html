@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24-Hour Clock</title>
+    <link href="https://fonts.googleapis.com/css2?family=DS+Digital&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: orange;
+            font-family: 'DS Digital', monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .clock {
+            font-size: 15rem; /* Very large text */
+            text-align: center;
+            width: 100vw; /* Full width */
+            height: 100vh; /* Full height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="clock" id="clock24"></div>
+    <script>
+        function updateClock24() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            document.getElementById('clock24').innerText = `${hours}:${minutes}:${seconds}`;
+        }
+        setInterval(updateClock24, 1000);
+        updateClock24(); // Initial call to display clock immediately
+    </script>
+</body>
+</html>
